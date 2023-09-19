@@ -25,6 +25,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonActions {
+	
+	
+	
+	
 	/**public means to access(use) the any where of the project and webDriver is interface*/
 	public static WebDriver driver;
 	
@@ -555,6 +559,9 @@ public class CommonActions {
 					return str;	
 				}
 				
+				public void SelectData(String locatorText) {
+					driver.findElement(By.xpath("//span[text()='"+locatorText+"']")).click();
+					}
 				
 
 

@@ -13,18 +13,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Browser extends CommonActions{
 	/**This method purpose is to browser is opened and url is lunched*/		
-	public WebDriver lunchUrl() throws Exception
+	public WebDriver launchUrl() throws Exception
 	{
 		Properties obj = new Properties();
-		FileInputStream fis = new FileInputStream(".\\src\\main\\resources\\SpeardSheets\\config.properties");
+		FileInputStream fis = new FileInputStream(".\\src\\main\\Resources\\Spreadsheets\\config.properties");
 		obj.load(fis);
 		String BrowserName = obj.getProperty("browser");
 		String URL = obj.getProperty("URL");
 		
 		if(BrowserName.equalsIgnoreCase("Chrome"))
 		{
-			WebDriverManager.chromedriver();
-			System.setProperty("webdriver.chrome.driver", "C:\\Chrome Driver\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver();
 			
 		}
@@ -40,8 +39,10 @@ public class Browser extends CommonActions{
 		}
 		driver.get(URL);
 		driver.manage().window().maximize();
+		fis.close();
 		
 		return driver; 
+		
 	}
 
 
